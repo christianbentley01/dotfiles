@@ -2,11 +2,10 @@
 
 ## Setup
 
-### Install Ansible (via pip)
+### Install Ansible
 
 ```bash
-sudo apt install python3-pip
-pip install ansible
+sudo apt install ansible
 ```
 
 ### Run dotfiles playbook
