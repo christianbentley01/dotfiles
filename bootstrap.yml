@@ -12,7 +12,13 @@
       state: latest
   
   - name: Create symlinks with stow
-    become: false
-    shell: "stow dotfiles -t {{ ansible_env.HOME }} --verbose=2"
+    shell: "stow stow -t {{ ansible_env.HOME }} --verbose=2"
     register: result
     changed_when: 'result.stderr is search("LINK: ")'
+  
+  - name: Insert/update .bashrc block
+    ansible.builtin.blockinfile:
+      path: "{{ ansible_env.HOME }}/.bashrc"
+      marker: "# --- {mark} PERSONAL ANSIBLE-MANAGED BLOCK ---"
+      block: "{{ lookup('ansible.builtin.file', './.bashrc') }}"
+      

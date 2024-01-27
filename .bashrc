@@ -1,0 +1,6 @@
+DEFAULT_COLOUR='\e[1;37m'
+DIR_COLOUR='\e[1;32m'
+BRANCH_COLOUR='\e[1;36m'
+NO_COLOUR='\e[m'
+
+PS1="${DEFAULT_COLOUR}[\u@\h ${BRANCH_COLOUR}\$(__git_ps1 '(%s) ')${DIR_COLOUR}\w${DEFAULT_COLOUR}]\n\$ ${NO_COLOUR}"
